@@ -9,7 +9,7 @@ public class Multiple {
         System.out.println("5 * 9 = 45");
         System.out.println("6 * 9 = 54");
         System.out.println("7 * 9 = 63");
-        System.out.println("8 * 9 = 82");
+        System.out.println("8 * 9 = 72");
         System.out.println("9 * 9 = 81");
     }
 }
