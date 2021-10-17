@@ -1,7 +1,7 @@
 package ru.job4j.converter;
 
-import org.testng.annotations.Test;
-import static org.junit.Assert.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class ConverterTest {
 
