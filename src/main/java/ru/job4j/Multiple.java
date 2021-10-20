@@ -2,15 +2,14 @@ package ru.job4j;
 
 public class Multiple {
     public static void main(String[] args) {
+        System.out.println("1 * 1 = 1");
+        System.out.println("1 * 2 = 2");
+        System.out.println("1 * 3 = 3");
+        System.out.println("1 * 4 = 4");
+        System.out.println("1 * 5 = 5");
+        System.out.println("1 * 6 = 6");
+        System.out.println("1 * 7 = 7");
+        System.out.println("1 * 8 = 8");
         System.out.println("1 * 9 = 9");
-        System.out.println("2 * 9 = 18");
-        System.out.println("3 * 9 = 27");
-        System.out.println("4 * 9 = 36");
-        System.out.println("5 * 9 = 45");
-        System.out.println("6 * 9 = 54");
-        System.out.println("7 * 9 = 63");
-        System.out.println("8 * 9 = 72");
-        System.out.println("9 * 9 = 81");
     }
 }
-
