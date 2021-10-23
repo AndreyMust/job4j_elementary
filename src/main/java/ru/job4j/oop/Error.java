@@ -29,6 +29,5 @@ public class Error {
         err1.printInfo();
         Error err3 = new Error(true, 33, "The name does not exist ");
         err1.printInfo();
-
     }
 }
