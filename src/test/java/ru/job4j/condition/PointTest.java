@@ -10,7 +10,7 @@ public class PointTest {
         double expected = 2;
         Point a = new Point(0, 0, 0);
         Point b = new Point(2, 0, 0);
-        double out = a.distance(b);
+        double out = a.distance3d(b);
         Assert.assertEquals(expected, out, 0.01);
     }
 
@@ -19,7 +19,7 @@ public class PointTest {
         double expected = 4;
         Point a = new Point(0, 0, 0);
         Point b = new Point(0, 4, 0);
-        double out = a.distance(b);
+        double out = a.distance3d(b);
         Assert.assertEquals(expected, out, 0.01);
     }
 
@@ -28,7 +28,7 @@ public class PointTest {
         double expected = 3.6;
         Point a = new Point(2, 0, 0);
         Point b = new Point(0, 3, 0);
-        double out = a.distance(b);
+        double out = a.distance3d(b);
         Assert.assertEquals(expected, out, 0.01);
     }
 }
