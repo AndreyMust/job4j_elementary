@@ -2,13 +2,12 @@ package ru.job4j.pojo;
 
 public class Book {
     private String name;
+    private String autor;
 
     public Book(String name, String autor) {
         this.name = name;
         this.autor = autor;
     }
-
-    private String autor;
 
     public String getName() {
         return name;

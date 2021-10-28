@@ -24,7 +24,7 @@ public class Library {
         }
         System.out.println("----------------------------");
         for (Book book: lib) {
-            if (book.getName().equals("Clean code")) {
+            if (("Clean code").equals(book.getName())) {
                 System.out.println(book.getName() + ". Autor " + book.getAutor());
             }
         }
