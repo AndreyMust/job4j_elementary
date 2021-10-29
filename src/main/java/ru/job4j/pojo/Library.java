@@ -16,7 +16,7 @@ public class Library {
             System.out.println(lib[i].getName());
         }
         System.out.println("----------------------------");
-        Book tmp = new Book(lib[0].getName(), lib[0].getAutor());
+        Book tmp = lib[0];
         lib[0] = lib[3];
         lib[3] = tmp;
         for (Book book: lib) {
