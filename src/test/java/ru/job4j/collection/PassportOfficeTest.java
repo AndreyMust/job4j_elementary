@@ -31,4 +31,13 @@ public class PassportOfficeTest {
         passportOffice.add(citizen);
         assertNull(passportOffice.get("rtx1070"));
     }
+
+    @Test
+    public void whenAddReturnFalse() {
+        Citizen citizen = new Citizen("rtx3090", "Albert Petrov");
+        PassportOffice passportOffice = new PassportOffice();
+        passportOffice.add(citizen);
+        Citizen citizenTwo = new Citizen("rtx3090", "Sidorov");
+        assertFalse(passportOffice.add(citizenTwo));
+    }
 }
