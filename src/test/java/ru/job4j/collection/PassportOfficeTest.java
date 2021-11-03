@@ -23,4 +23,12 @@ public class PassportOfficeTest {
         office.add(citizenB);
         assertThat(office.get(citizenA.getPassport()), is(citizenA));
     }
+
+    @Test
+    public void whenReturnNull() {
+        Citizen citizen = new Citizen("rtx3090", "Albert Petrov");
+        PassportOffice passportOffice = new PassportOffice();
+        passportOffice.add(citizen);
+        assertNull(passportOffice.get("rtx1070"));
+    }
 }
