@@ -2,16 +2,23 @@ package ru.job4j.bank;
 
 import java.util.*;
 
+/**
+ * Класс описывает работу банковских операций
+ * @author Мустафин
+ * @version 1.0
+ * */
 public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
+    /** Метод добавляет пару user и accounts в коллекцию HashMap, если ее там нет.
+     * @param user данные пользователя
+     */
     public void addUser(User user) {
         List<Account> accounts = new ArrayList<>();
         users.putIfAbsent(user, accounts);
     }
 
     /**   Метод добавляет Счет для пользователя.
-     *
      * @param passport - номер паспорта
      * @param account - счет для добавления
      *  Проверяет, что такого счета еще нет у данного пользователя
@@ -26,6 +33,10 @@ public class BankService {
         }
     }
 
+    /** Метод занимается поиском паспорта в списке
+     * @param passport по номеру паспорта в коллекции HashMap
+     * @return первый номер паспорта, который совпал
+     */
     public User findByPassport(String passport) {
         for (User user: users.keySet()) {
             if (user.getPassport().equals(passport)) {
@@ -35,6 +46,14 @@ public class BankService {
         return null;
     }
 
+    /** Этот метод находит паспорт по пользователя
+     * @param passport номер паспорта
+     * @param requisite реквизиты
+     *
+     *по номеру паспорта находим пользователя.
+     *Далее, находим есть ли нужный счет у данного поьзователя
+     * @return Возвращаем первое совпадение
+     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
