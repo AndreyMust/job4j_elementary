@@ -34,5 +34,16 @@ public class FI {
         for (String s : arrString) {
             System.out.println(s);
         }
+
+        String[] names = {
+                "Ivan",
+                "Petr"
+        };
+        System.out.println("Test execute comparator");
+        Comparator<String> lengthCmp = (left, right) -> {
+            System.out.println("execute comparator");
+            return left.length() - right.length();
+        };
+        Arrays.sort(names, lengthCmp);
     }
 }
