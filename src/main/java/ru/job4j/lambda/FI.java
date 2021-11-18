@@ -9,7 +9,10 @@ public class FI {
                 new Attachment("image 333", 120),
                 new Attachment("image 22", 23)
         };
-        Comparator<Attachment> comparator = (left, right) -> left.getSize() - right.getSize();
+        Comparator<Attachment> comparator = (left, right) -> {
+            System.out.println("compare - " + left.getSize() + " : " + right.getSize());
+            return left.getSize() - right.getSize();
+        };
         Arrays.sort(atts, comparator);
         for (Attachment a : atts) {
             System.out.println(a);
