@@ -28,10 +28,7 @@ public class StreamUsage {
                 new Task("Task #2", 50),
                 new Task("Bug #3", 100)
         );
-        tasks.stream().filter(task -> task.name.contains("Bug"))
-                .filter(task -> task.spent > 30)
-                .map(task -> task.name + " " + task.spent)
-                .forEach(System.out::println);
+        tasks.stream().filter(task -> task.name.contains("Bug")).filter(task -> task.spent == 30).map(task -> task.name + " " + task.spent).forEach(System.out::println);
 
         List<Integer> digits = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
         digits.stream().filter(x -> x % 3 == 0).forEach(System.out::println);
