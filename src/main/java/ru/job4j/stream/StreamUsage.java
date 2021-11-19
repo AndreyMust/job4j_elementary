@@ -33,10 +33,10 @@ public class StreamUsage {
                 .map(task -> task.name + " " + task.spent)
                 .forEach(System.out::println);
 
-        List<Integer> digits = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
-        digits.stream().filter(x -> x % 3 == 0).forEach(System.out::println);
+        List<Integer> digits = new ArrayList<>(Arrays.asList(-1, -2, 3, 4, 5, -6));
+        digits.stream().filter(x -> x > 0).forEach(System.out::println);
         List<Integer> res = digits.stream()
-                            .filter(x -> x % 2 == 0)
+                            .filter(x -> x > 0)
                             .collect(Collectors.toList());
         System.out.println(res);
     }
