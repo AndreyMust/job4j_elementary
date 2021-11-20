@@ -25,7 +25,7 @@ public class School {
      * @return Map из списка Студентов
      */
     public Map<String, Student> makeMapV2(List<Student> students) {
-        return students.stream().distinct()
+        return students.stream()
                 .collect(Collectors.toMap(student -> student.getSurname(),
                         student -> student,
                         (existing, replacement) -> existing)
