@@ -21,4 +21,21 @@ public class ProfilesTest {
                 new Address("Москва", "Иванова", 1, 33));
         assertThat(addresses, is(expected));
     }
+
+    @Test
+    public void collectDistinct() {
+        List<Profile> profiles = Arrays.asList(
+                new Profile(new Address("Москва", "Иванова", 1, 33),
+                        "Сергей", "Петров"),
+                new Profile(new Address("Москва", "Иванова", 1, 33),
+                        "Алена", "Петрова")
+        );
+
+        Profiles profile = new Profiles();
+        List<Address> addresses = profile.collectDistinct(profiles);
+        List<Address> expected = Arrays.asList(
+                new Address("Москва", "Иванова", 1, 33)
+        );
+        assertThat(addresses, is(expected));
+    }
 }
