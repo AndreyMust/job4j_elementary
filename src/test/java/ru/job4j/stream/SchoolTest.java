@@ -85,13 +85,13 @@ public class SchoolTest {
     @Test
     public void whenMakeMapV2() {
         List<Student> students = List.of(
-                new Student(10, "Иванов"),
-                new Student(50, "Петров"),
-                new Student(10, "Иванов")
+                new Student(31, "Иванов"),
+                new Student(40, "Петров"),
+                new Student(22, "Иванов")
         );
         Map<String, Student> expected = new HashMap<>();
-        expected.put("Иванов", new Student(10, "Иванов"));
-        expected.put("Петров", new Student(50, "Петров"));
+        expected.put("Иванов", new Student(31, "Иванов"));
+        expected.put("Петров", new Student(40, "Петров"));
 
         School sc = new School();
         Map<String, Student> rsl = sc.makeMapV2(students);
