@@ -37,13 +37,21 @@ public class BankService {
      * @param passport по номеру паспорта в коллекции HashMap
      * @return первый номер паспорта, который совпал
      */
-    public User findByPassport(String passport) {
+    public User findByPassportOld(String passport) {
         for (User user: users.keySet()) {
             if (user.getPassport().equals(passport)) {
                 return user;
             }
         }
         return null;
+    }
+
+    public User findByPassport(String passport) {
+        return users.keySet()
+                .stream()
+                .filter(p -> p.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /** Этот метод находит паспорт по пользователя
@@ -54,7 +62,7 @@ public class BankService {
      *Далее, находим есть ли нужный счет у данного поьзователя
      * @return Возвращаем первое совпадение
      */
-    public Account findByRequisite(String passport, String requisite) {
+    public Account findByRequisiteOld(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
             for (Account acc : users.get(user)) {
@@ -62,6 +70,18 @@ public class BankService {
                     return acc;
                 }
             }
+        }
+        return null;
+    }
+
+    public Account findByRequisite(String passport, String requisite) {
+        User user = findByPassport(passport);
+        if (user != null) {
+            return users.get(user)
+                    .stream()
+                    .filter(acc -> acc.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
