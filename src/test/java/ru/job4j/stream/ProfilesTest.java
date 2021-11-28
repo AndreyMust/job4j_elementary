@@ -11,20 +11,20 @@ public class ProfilesTest {
 
     @Test
     public void collect() {
-        List<Profile> profiles = Arrays.asList(
+        List<Profile> profiles = List.of(
                 new Profile(new Address("Москва", "Иванова", 1, 33),
                         "Сергей", "Петров"));
 
         Profiles profile = new Profiles();
         List<Address> addresses = profile.collect(profiles);
-        List<Address> expected = Arrays.asList(
+        List<Address> expected = List.of(
                 new Address("Москва", "Иванова", 1, 33));
         assertThat(addresses, is(expected));
     }
 
     @Test
     public void collectDistinct() {
-        List<Profile> profiles = Arrays.asList(
+        List<Profile> profiles = List.of(
                 new Profile(new Address("Москва", "Иванова", 1, 33),
                         "Сергей", "Петров"),
                 new Profile(new Address("Москва", "Иванова", 1, 33),
@@ -33,7 +33,7 @@ public class ProfilesTest {
 
         Profiles profile = new Profiles();
         List<Address> addresses = profile.collectDistinct(profiles);
-        List<Address> expected = Arrays.asList(
+        List<Address> expected = List.of(
                 new Address("Москва", "Иванова", 1, 33)
         );
         assertThat(addresses, is(expected));

@@ -15,7 +15,7 @@ public class MatrixToListTest {
                 {4, 5, 6}
         };
         List<Integer> rsl = MatrixToList.makeList(matrix);
-        List<Integer> expected = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> expected = List.of(1, 2, 3, 4, 5, 6);
         assertThat(rsl, is(expected));
     }
 }

@@ -1,6 +1,6 @@
 package ru.job4j.collection;
 
-import java.util.Arrays;
+import java.util.*;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -11,7 +11,7 @@ public class ConvertList2ArrayTest {
     @Test
     public void when7ElementsThen9() {
         int[][] result = ConvertList2Array.toArray(
-                Arrays.asList(1, 2, 3, 4, 5, 6, 7),
+                List.of(1, 2, 3, 4, 5, 6, 7),
                 3
         );
         int[][] expect = {
@@ -26,7 +26,7 @@ public class ConvertList2ArrayTest {
     @Ignore
     public void when8ElementsThen9() {
         int[][] result = ConvertList2Array.toArray(
-                Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8),
+                List.of(1, 2, 3, 4, 5, 6, 7, 8),
                 3
         );
         int[][] expect = {
