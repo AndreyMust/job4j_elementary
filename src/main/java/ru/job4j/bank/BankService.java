@@ -24,11 +24,13 @@ public class BankService {
      *  Проверяет, что такого счета еще нет у данного пользователя
      */
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            List<Account> accounts = users.get(user);
-            if (!accounts.contains(account)) {
-                accounts.add(account);
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            //List<Account> accounts = users.get(user);
+            //if (!accounts.contains(account))
+            if (!users.get(user.get()).contains(account)) {
+                //accounts.add(account);
+                users.get(user.get()).add(account);
             }
         }
     }
@@ -37,21 +39,20 @@ public class BankService {
      * @param passport по номеру паспорта в коллекции HashMap
      * @return первый номер паспорта, который совпал
      */
-    public User findByPassportOld(String passport) {
+    public Optional<User> findByPassportOld(String passport) {
         for (User user: users.keySet()) {
             if (user.getPassport().equals(passport)) {
-                return user;
+                return Optional.of(user);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
-    public User findByPassport(String passport) {
+    public Optional<User> findByPassport(String passport) {
         return users.keySet()
                 .stream()
                 .filter(p -> p.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null);
+                .findFirst();
     }
 
     /** Этот метод находит паспорт по пользователя
@@ -62,28 +63,27 @@ public class BankService {
      *Далее, находим есть ли нужный счет у данного поьзователя
      * @return Возвращаем первое совпадение
      */
-    public Account findByRequisiteOld(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user != null) {
+    public Optional<Account>  findByRequisiteOld(String passport, String requisite) {
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
             for (Account acc : users.get(user)) {
                 if (acc.getRequisite().equals(requisite)) {
-                    return acc;
+                    return Optional.of(acc);
                 }
             }
         }
-        return null;
+        return Optional.empty();
     }
 
-    public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user != null) {
-            return users.get(user)
+    public Optional<Account> findByRequisite(String passport, String requisite) {
+        Optional<User> user = findByPassport(passport);
+        if (user.isPresent()) {
+            return users.get(user.get())
                     .stream()
                     .filter(acc -> acc.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null);
+                    .findFirst();
         }
-        return null;
+        return Optional.empty();
     }
 
     /**Этот метод производит перевод денег со счета на счет
@@ -98,11 +98,11 @@ public class BankService {
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        Account accSrc = findByRequisite(srcPassport, srcRequisite);
-        Account accDst = findByRequisite(destPassport, destRequisite);
-        if (accDst != null && accSrc != null && accSrc.getBalance() >= amount) {
-            accDst.setBalance(accDst.getBalance() + amount);
-            accSrc.setBalance(accSrc.getBalance() - amount);
+        Optional<Account> accSrc = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> accDst = findByRequisite(destPassport, destRequisite);
+        if (accSrc.isPresent() && accDst.isPresent() && accSrc.get().getBalance() >= amount) {
+            accDst.get().setBalance(accDst.get().getBalance() + amount);
+            accSrc.get().setBalance(accSrc.get().getBalance() - amount);
             rsl = true;
         }
         return rsl;
