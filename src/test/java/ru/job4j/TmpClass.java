@@ -22,7 +22,7 @@ public class TmpClass {
         *    list.add(scan.nextInt());
         * System.out.println("Start");
         * Scanner scan = new Scanner(System.in);
-        * String input = "1 2 3 4 5"; //scan.nextLine();
+        * String input = "1 2 3 4 5"; scan.nextLine();
         * List<String> numArray = new ArrayList<>(Arrays.asList(input.split(" ")));
         * System.out.println(input);
         * System.out.println(numArray);
@@ -33,7 +33,6 @@ public class TmpClass {
         Deque<String> states = new ArrayDeque<String>();
         states.add("Germany");
         states.add("France");
-        //states.push("UK");
         states.offerLast("Norway");
 
         System.out.println(states);
