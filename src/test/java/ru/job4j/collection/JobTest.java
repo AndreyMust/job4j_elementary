@@ -72,7 +72,7 @@ public class JobTest {
     @Test
     public void comparatorJobAscByPriority() {
         Comparator<Job> ascPriority = new JobByPriority();
-        List<Job> jobs = List.of(
+        List<Job> jobs = Arrays.asList(
                 new Job("A", 4),
                 new Job("B", 3),
                 new Job("C", 2),
@@ -91,7 +91,7 @@ public class JobTest {
 
     @Test
     public void whenCompatorByNameAndPrority() {
-        List<Job> jobs = List.of(
+        List<Job> jobs = Arrays.asList(
                 new Job("Fix bug", 1),
                 new Job("Fix bug", 4),
                 new Job("Fix bug", 2),
