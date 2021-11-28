@@ -36,7 +36,7 @@ public class DepartmentsTest {
 
     @Test
     public void sortAsc() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1/SK1",
                 "K1",
                 "K1/SK1/SSK2",
@@ -64,7 +64,7 @@ public class DepartmentsTest {
 
     @Test
     public void sortDesc() {
-        List<String> input = List.of(
+        List<String> input = Arrays.asList(
                 "K1",
                 "K1/SK1",
                 "K1/SK1/SSK1",
