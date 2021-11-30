@@ -12,11 +12,9 @@ public class JobSorter {
         );
         jobs.sort(new JobDescByName().thenComparing(new JobDescByPriority()));
         System.out.println(jobs);
-
         Comparator<Job> compareName = Comparator.comparing(Job::getName);
         Comparator<Job> comparePriority = Comparator.comparingInt(Job::getPriority);
         Comparator<Job> combine = compareName.thenComparing(comparePriority);
-
         jobs.sort(comparePriority);
         System.out.println(jobs);
     }

@@ -17,7 +17,6 @@ public class FI {
         for (Attachment a : atts) {
             System.out.println(a);
         }
-
         String[] arrString = {
                 new String("Name 1"),
                 new String("Name 333"),
@@ -28,13 +27,11 @@ public class FI {
         for (String s : arrString) {
             System.out.println(s);
         }
-
         Comparator<String> cmpDescSize  = (left, right) ->  Integer.compare(right.length(), left.length());
         Arrays.sort(arrString, cmpDescSize);
         for (String s : arrString) {
             System.out.println(s);
         }
-
         String[] names = {
                 "Ivan",
                 "Petr"

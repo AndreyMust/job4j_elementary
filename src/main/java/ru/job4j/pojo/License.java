@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Objects;
 
 public class License {
-
     private String model;
     private String code;
     private Date created;

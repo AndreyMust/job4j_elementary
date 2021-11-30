@@ -1,7 +1,6 @@
 package ru.job4j.pojo;
 
 public class Library {
-
     public static void main(String[] args) {
         Book book1 = new Book("Java Beginer", "Ivanov");
         Book book2 = new Book("Java for profi", "Sidorov");
