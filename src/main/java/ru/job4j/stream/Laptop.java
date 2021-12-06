@@ -11,14 +11,14 @@ public class Laptop {
 
     @Override
     public String toString() {
-        return "Laptop Description: " + '\n'
-                + " Brand Name: " + brand + '\n'
-                + " Model Name: " + model + '\n'
-                + " OS Name: " + osName + '\n'
-                + " RAM Size: " + ram + " GB \n"
-                + " HDD Size: " + hddSize + " GB\n"
-                + " Screen Size: " + screen + " inch\n"
-                + " Weight: " + weight + " kg\n";
+        return "Laptop Description: " + System.lineSeparator()
+                + " Brand Name: " + brand + System.lineSeparator()
+                + " Model Name: " + model + System.lineSeparator()
+                + " OS Name: " + osName + System.lineSeparator()
+                + " RAM Size: " + ram + " GB" + System.lineSeparator()
+                + " HDD Size: " + hddSize + " GB" + System.lineSeparator()
+                + " Screen Size: " + screen + " inch" + System.lineSeparator()
+                + " Weight: " + weight + " kg" + System.lineSeparator();
     }
 
         static class Builder {
